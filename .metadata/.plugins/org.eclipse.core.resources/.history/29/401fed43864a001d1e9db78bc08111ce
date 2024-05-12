@@ -1,0 +1,33 @@
+/*
+ * main.c
+ *
+ *  Created on: Oct 13, 2022
+ *      Author: USER
+ */
+#include"common_macros.h"
+#include"icu.h"
+#include"lcd.h"
+#include"ultraSonic.h"
+#include"std_types.h"
+#include"lcd.h"
+#include<avr/io.h>
+
+void *g_Icu_Configuration = 0;
+void main(void){
+	Icu_ConfigType IcuConfiguration = {F_CPU_8, RISING};
+	g_Icu_Configuration = &IcuConfiguration;
+	SREG |= (1<<7);
+
+	LCD_init();
+	Ultrasonic_init();
+
+	while(1){
+
+		LCD_displayString("Distance = ");
+		/* display the distance on LCD screen */
+		LCD_intgerToString(Ultrasonic_readDistance());
+		LCD_displayString(" cm");
+	}
+
+}
+

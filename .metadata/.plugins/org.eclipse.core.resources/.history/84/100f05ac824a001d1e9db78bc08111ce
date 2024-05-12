@@ -1,0 +1,20 @@
+/*
+ * main.c
+ *
+ *  Created on: Oct 13, 2022
+ *      Author: USER
+ */
+#include"common_macros.h"
+#include"icu.h"
+#include"lcd.h"
+#include"ultraSonic.h"
+#include"std_types.h"
+
+
+
+void main(void){
+	Icu_ConfigType IcuConfiguration = {F_CPU_8, RISING};
+
+
+}
+
